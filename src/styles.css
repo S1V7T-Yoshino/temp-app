@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/002/401/132/original/green-ecology-city-help-the-world-with-eco-friendly-concept-ideas-free-vector.jpg");
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    /* background-position-x: center; */
+}
