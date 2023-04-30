@@ -7,9 +7,9 @@ WORKDIR /app
 # Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
 
-# Install dependencies
-RUN apk add --no-cache git && \
-    git clone https://github.com/S1V7T-Yoshino/temp-app.git .
+# Install all dependencies
+RUN apk add --no-cache git
+RUN git clone https://github.com/S1V7T-Yoshino/temp-app.git ./app
 RUN npm install
 RUN npm install -g http-server
 
