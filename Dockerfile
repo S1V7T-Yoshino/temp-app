@@ -14,7 +14,7 @@ RUN npm install
 RUN npm install -g http-server
 
 # Copy the remaining app files to the container
-COPY . .
+# COPY . .
 
 # Build the app
 RUN npm run build --prod
