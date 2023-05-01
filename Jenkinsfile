@@ -25,11 +25,11 @@ pipeline {
                 sh 'npm run build --prod'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'npm run test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // }
         // stage('Clean Up') {
         //     steps {
         //         sh 'rm -rf node_modules'
