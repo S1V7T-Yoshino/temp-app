@@ -7,7 +7,6 @@ pipeline {
 
     tools {
         nodejs "nodejs-20"
-        docker 'Docker'
     }
 
     stages {
