@@ -5,27 +5,28 @@ pipeline {
         DOCKER_IMAGE = 'my-app'
     }
 
+    tools {
+        nodejs "nodejs-version"
+    }
+
     stages {
         stage('Clone git repository') {
             steps {
                 checkout scm
             }
         }
-        stage('Setup') {
-            steps {
-                sh 'curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -'
-                sh 'sudo apt-get install -y nodejs'
-                sh 'sudo npm install -g npm'
-            }
-        }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                node('nodejs-version') {
+                    sh 'npm install'
+                }
             }
         }
         stage('Build') {
             steps {
-                sh 'npm run build --prod'
+                node('nodejs-version') {
+                    sh 'npm run build --prod'
+                }
             }
         }
         stage('Test') {
