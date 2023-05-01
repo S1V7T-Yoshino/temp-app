@@ -5,9 +5,10 @@ pipeline {
         DOCKER_IMAGE = 'my-app'
     }
 
-    tools {
-        nodejs "nodejs-20"
-    }
+    // tools {
+    //     nodejs "nodejs-20"
+    //     docker 'Docker'
+    // }
 
     stages {
         stage('Clone git repository') {
@@ -18,6 +19,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
+                // sh 'yarn install'
             }
         }
         stage('Build') {
@@ -59,7 +61,7 @@ pipeline {
         stage('Push Docker Image to Registry') {
             steps {
                 script {
-                    docker.withRegistry('https://hub.docker.com/repository/docker/kitsuneyoshino/angular-app/general', 'f98dbdcd-0f3d-4a7c-b629-6ca6bb8d1b6e') {
+                    docker.withRegistry('https://hub.docker.com/repository/docker/kitsuneyoshino/angular-app/general', '334d8347-e87a-4e42-adec-52c84cc39304') {
                         dockerImagePush("${DOCKER_IMAGE}:${BUILD_NUMBER}")
                         dockerImagePush("${DOCKER_IMAGE}:latest")
                     }
