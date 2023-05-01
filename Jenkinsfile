@@ -6,7 +6,7 @@ pipeline {
     }
 
     tools {
-        nodejs "nodejs-version"
+        nodejs "nodejs-20"
     }
 
     stages {
@@ -17,16 +17,12 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                node('nodejs-version') {
-                    sh 'npm install'
-                }
+                sh 'npm install'
             }
         }
         stage('Build') {
             steps {
-                node('nodejs-version') {
-                    sh 'npm run build --prod'
-                }
+                sh 'npm run build --prod'
             }
         }
         stage('Test') {
