@@ -13,12 +13,6 @@ RUN git clone https://github.com/S1V7T-Yoshino/temp-app.git /app
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
-# COPY package*.json ./
-
-# Copy the remaining app files to the container
-# COPY . .
-
 # Install dependencies
 RUN npm install
 RUN npm install -g http-server
