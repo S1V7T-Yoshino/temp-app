@@ -13,6 +13,8 @@ pipeline {
         }
         stage('Setup') {
             steps {
+              sh 'sudo chmod -R 777 /var/lib/apt/lists/partial'
+
                 sh 'curl -sL https://deb.nodesource.com/setup_18.x | bash -'
                 sh 'sudo apt-get install -y nodejs'
                 sh 'sudo npm install -g npm'
