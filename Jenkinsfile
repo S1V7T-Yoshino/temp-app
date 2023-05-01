@@ -47,7 +47,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE}:${BUILD_NUMBER}")
+                    sh 'docker build -t ${DOCKER_IMAGE}:latest .'
                 }
             }
         }
@@ -55,18 +55,18 @@ pipeline {
             steps {
                 sh "docker stop ${DOCKER_IMAGE} || true"
                 sh "docker rm ${DOCKER_IMAGE} || true"
-                sh "docker run -d --name ${DOCKER_IMAGE} -p 80:80 ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                sh "docker run -d --name ${DOCKER_IMAGE} -p 3000:3000 ${DOCKER_IMAGE}:${BUILD_NUMBER}"
             }
         }
-        stage('Push Docker Image to Registry') {
-            steps {
-                script {
-                    docker.withRegistry('https://hub.docker.com/repository/docker/kitsuneyoshino/angular-app/general', '334d8347-e87a-4e42-adec-52c84cc39304') {
-                        dockerImagePush("${DOCKER_IMAGE}:${BUILD_NUMBER}")
-                        dockerImagePush("${DOCKER_IMAGE}:latest")
-                    }
-                }
-            }
-        }
+        // stage('Push Docker Image to Registry') {
+        //     steps {
+        //         script {
+        //             docker.withRegistry('https://hub.docker.com/repository/docker/kitsuneyoshino/angular-app/general', '334d8347-e87a-4e42-adec-52c84cc39304') {
+        //                 dockerImagePush("${DOCKER_IMAGE}:${BUILD_NUMBER}")
+        //                 dockerImagePush("${DOCKER_IMAGE}:latest")
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
