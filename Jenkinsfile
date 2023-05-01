@@ -55,7 +55,7 @@ pipeline {
             steps {
                 sh "sudo docker stop ${DOCKER_IMAGE} || true"
                 sh "sudo docker rm ${DOCKER_IMAGE} || true"
-                sh "sudo docker run -d --name ${DOCKER_IMAGE} -p 3000:3000 ${DOCKER_IMAGE}:latest"
+                sh "sudo docker run -d --name ${DOCKER_IMAGE} -p 3000:80 ${DOCKER_IMAGE}:latest"
             }
         }
         // stage('Push Docker Image to Registry') {
