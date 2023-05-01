@@ -4,21 +4,14 @@ FROM node:19-alpine
 # Expose port 80 for the app
 EXPOSE 80
 
-# Install Git
-RUN apk update && apk add --no-cache git
-
-# Clone the repository
-RUN git clone https://github.com/S1V7T-Yoshino/temp-app.git /app
-
 # Set the working directory to /app
 WORKDIR /app
 
-# Install dependencies
-RUN npm install
-RUN npm install -g http-server
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Build the app
-RUN npm run build --prod
+# Install dependencies
+RUN npm install -g http-server
 
 # Run the app when the container starts
 CMD ["npm", "run", "serve"]
