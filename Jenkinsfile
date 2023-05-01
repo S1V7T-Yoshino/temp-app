@@ -47,15 +47,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t ${DOCKER_IMAGE}:latest .'
+                    sh 'sudo docker build -t ${DOCKER_IMAGE}:latest .'
                 }
             }
         }
         stage('Deploy to Localhost') {
             steps {
-                sh "docker stop ${DOCKER_IMAGE} || true"
-                sh "docker rm ${DOCKER_IMAGE} || true"
-                sh "docker run -d --name ${DOCKER_IMAGE} -p 3000:3000 ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                sh "sudo docker stop ${DOCKER_IMAGE} || true"
+                sh "sudo docker rm ${DOCKER_IMAGE} || true"
+                sh "sudo docker run -d --name ${DOCKER_IMAGE} -p 3000:3000 ${DOCKER_IMAGE}:${BUILD_NUMBER}"
             }
         }
         // stage('Push Docker Image to Registry') {
