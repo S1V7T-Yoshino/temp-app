@@ -6,9 +6,20 @@ pipeline {
     }
 
     stages {
-        stage('Clone & Install dependencies') {
+        stage('Clone git repository') {
             steps {
                 checkout scm
+            }
+        }
+        stage('Setup') {
+            steps {
+                sh 'curl -sL https://deb.nodesource.com/setup_18.x | bash -'
+                sh 'apt-get install -y nodejs'
+                sh 'npm install -g npm'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
                 sh 'npm install'
             }
         }
