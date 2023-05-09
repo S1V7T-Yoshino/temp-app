@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:19-alpine
+FROM node:19-alpine AS build
 
 # Expose port 80 for the app
 EXPOSE 80
@@ -15,10 +15,21 @@ WORKDIR /app
 
 # Install dependencies
 RUN npm install
-RUN npm install -g http-server
 
 # Build the app
 RUN npm run build --prod
 
-# Run the app when the container starts
-CMD ["npm", "run", "serve"]
+# Start with a fresh nginx image
+FROM nginx:alpine
+
+# Copy the built Angular application from the previous stage
+COPY --from=build /app/dist/my-app /usr/share/nginx/html
+
+# Copy nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
