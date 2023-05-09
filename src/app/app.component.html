@@ -1,93 +1,54 @@
 <div class="container rounded bg-white mt-5 mb-5">
-  <div class="row">
-      <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <img class="rounded-circle mt-5" width="150px" src="/assets/download.png">
-              <span class="font-weight-bold">Nom Prenom</span>
-              <span class="text-black-50">Adresse</span>
-              <span> </span>
-          </div>
-      </div>
-      <div class="col-md-5 border-right">
-          <form >
-            <!-- #ProfileForm="ngForm" (ngSubmit)="onSubmit(ProfileForm)" -->
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">Profile Settings</h4>
-              </div>
-              <div class="row mt-2">                        
-                      <!-- this is how to ngif show an input and controle it
-                      <div *ngIf="Person.Role=='employe' ; else elseBlock">
-                          <input type="text" class="form-control" [readonly]=true [placeholder]="nname" [(ngModel)] = "Person.Prenom">
-                      </div>
-                      <ng-template #elseBlock>
-                          <input type="text" class="form-control" [readonly]=false [placeholder]="nname" [(ngModel)] = "Person.Prenom">
-                      </ng-template>  -->
-                  <div class="col-md-6"><label class="labels">Prenom</label>
-                      <input type="text" class="form-control" placeholder="Prenom" >
-                      <!-- name="Prenom" #Prenom="ngModel" [(ngModel)] = "Person.Prenom"> -->
-                  </div>
-                  <div class="col-md-6"><label class="labels">Nom</label>
-                      <input type="text" class="form-control" placeholder="Nom" >
-                      <!-- name="Nom" #Nom="ngModel" [(ngModel)] = "Person.Nom"> -->
-                  </div>
-              </div>
-
-              <div class="row mt-3">
-                  <div class="col-md-12"><label class="labels">Mobile Number</label>
-                      <input type="text" class="form-control" placeholder="phone number"> 
-                      <!-- name="Tel" #Tel="ngModel" [(ngModel)] = "Person.Tel"> -->
-                  </div>
-
-                  <div class="col-md-12"><label class="labels">Email ID</label>
-                      <input type="text" class="form-control" placeholder="email"> 
-                      <!-- name="Adresse" #Adresse="ngModel" [(ngModel)] = "Person.Adresse"> -->
-                      
-                  </div>
-                  
-                  <div class="col-md-12"><label class="labels">Role</label>
-                  <select class="form-select" name="Role">
-                     <!-- #Role="ngModel" [(ngModel)] = "Person.Role"> -->
-                      <option value="Admin">Admin </option>
-                      <option value="Employe">Employe</option>
-                      <option value="Technicien">Technicien</option>
-                  </select>
-                  </div>
-
-              </div>
-              <div class="row mt-3">
-                  <div class="col-md-6"><label class="labels">CIN</label>
-                      <input type="text" class="form-control" placeholder="CIN">
-                      <!-- name="CIN" #CIN="ngModel" [(ngModel)] = "Person.CIN"> -->
-                  </div>
-                                     
-                  <div class="col-md-6"><label class="labels">N° Bureau</label>
-                      <input type="text" class="form-control" placeholder="N° Bureau" >
-                      <!-- name="Num_bureau" #Num_bureau="ngModel" [(ngModel)] = "Person.Num_bureau"> -->
-                  </div>
-              </div>
-              <div class="mt-5 text-center">
-                  <button class="btn btn-primary profile-button" type="submit">
-                  <!-- [disabled]="!ProfileForm.valid" [disabled]="ProfileForm.invalid"> -->
-                  Save Profile <i class="fa-solid fa-file-arrow-down"></i></button>
-              </div>
-          </div>
-      </form>
-  </div>
-
-
-      <!-- <div class="col-md-4">
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center experience">
-                  <span>Edit Experience</span>
-                  <span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span>
-              </div>
-              <br>
-              <div class="col-md-12"><label class="labels">Experience in Designing</label>
-                  <input type="text" class="form-control" placeholder="experience"></div> <br>
-              <div class="col-md-12"><label class="labels">Additional Details</label>
-                  <input type="text" class="form-control" placeholder="additional details"></div>
-          </div>
-      </div> -->
-  </div>
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="/assets/download.png">
+                <span class="font-weight-bold"></span>
+                <span class="text-black-50"></span>
+                <span> </span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Reclamer Panne</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label>
+                        <input type="text" class="form-control" placeholder="first name" value="" ></div>
+                    <div class="col-md-6"><label class="labels">Surname</label>
+                        <input type="text" class="form-control" value="" placeholder="surname" ></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Mobile Number</label>
+                        <input type="text" class="form-control" placeholder="phone number" value="" ></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label>
+                        <input type="text" class="form-control" placeholder="email" value="" ></div>
+                    <div class="col-md-12"><label class="labels">????</label>
+                        <input type="text" class="form-control" placeholder="????" value=""></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">CIN</label>
+                        <input type="text" class="form-control" placeholder="CIN" value="" ></div>
+                    <div class="col-md-6"><label class="labels">N° Bureau</label>
+                        <input type="text" class="form-control" value="" placeholder="N° Bureau" ></div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button" >Save Profile</button></div>
+            </div>
+        </div>
+        <!-- <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span>Edit Experience</span>
+                    <span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span>
+                </div>
+                <br>
+                <div class="col-md-12"><label class="labels">Experience in Designing</label>
+                    <input type="text" class="form-control" placeholder="experience" value=""></div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label>
+                    <input type="text" class="form-control" placeholder="additional details" value=""></div>
+            </div>
+        </div> -->
+    </div>
 </div>
